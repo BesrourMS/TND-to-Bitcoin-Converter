@@ -20,7 +20,7 @@ $.getJSON('http://api.coindesk.com/v1/bpi/currentprice/TND.json', function(data)
 		var price = data.bpi.TND.rate_float;
 		var prix = price.toFixed(3);
 		content +='<span> Bitcoin Price : '+ prix +' TND </span>';
-	$("#tnd").change(function(){
+	$("#tnd").bind('DOMAttrModified textInput input change keypress paste focus', function () {
 				var tnd = $("#tnd").val();
 				var bitcoin = tnd/ data.bpi.TND.rate_float;
 				var bitcoin = bitcoin.toFixed(8);
