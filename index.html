@@ -20,7 +20,7 @@ $.getJSON('http://api.coindesk.com/v1/bpi/currentprice/TND.json', function(data)
 		var price = data.bpi.TND.rate_float;
 		var prix = price.toFixed(3);
 		content +='<span> Bitcoin Price : '+ prix +' TND </span>';
-	$("#calcul").click(function(){
+	$("#tnd").change(function(){
 				var tnd = $("#tnd").val();
 				var bitcoin = tnd/ data.bpi.TND.rate_float;
 				var bitcoin = bitcoin.toFixed(8);
@@ -42,7 +42,7 @@ $(content).appendTo("#bitcoin");
 			</header>
 			<section>
 				<input  placeholder="Amount TND" class="ghost-btn" style="width:33%" id="tnd" type="number" size="5">
-				<input  class="ghost-btn" type="submit" id="calcul" value="Calcul"/>
+				<!--<input  class="ghost-btn" type="submit" id="calcul" value="Calcul"/>-->
 			</section>
 			<section>
 				
