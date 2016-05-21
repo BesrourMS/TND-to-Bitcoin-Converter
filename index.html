@@ -15,14 +15,15 @@
 		<script>
 $(document).ready(function(){
 	$.getJSON('http://api.coindesk.com/v1/bpi/currentprice/TND.json', function(data){
-		 var content = '';
+		var content = '';
 		var price = data.bpi.TND.rate_float;
 		var prix = price.toFixed(3);
 		content +='<span> Bitcoin Price : '+ prix +' TND </span>';
-	$("#tnd").bind('DOMAttrModified textInput input change keypress paste focus', function () {
+		$("#tnd").bind('DOMAttrModified textInput input change keypress paste focus', function () {
 				var tnd = $("#tnd").val();
 				var bitcoin = tnd/ data.bpi.TND.rate_float;
 				var bitcoin = bitcoin.toFixed(8);
+				console.log(bitcoin);
 				$("#q1").val(bitcoin+' BTC');
 		});
 		$(content).appendTo("#bitcoin");
