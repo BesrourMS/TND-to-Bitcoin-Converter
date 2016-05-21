@@ -24,8 +24,7 @@ $(document).ready(function(){
 				var bitcoin = tnd/ data.bpi.TND.rate_float;
 				var bitcoin = bitcoin.toFixed(8);
 				console.log(bitcoin);
-				//$("#q1").val(bitcoin+' BTC');
-				bitcoin.before($("#q1"));
+				$("#q1").val(bitcoin+' BTC');
 		});
 		$(content).appendTo("#bitcoin");
 	});
@@ -79,5 +78,24 @@ $(document).ready(function(){
 			</section>-->
 		</div><!-- /container -->
 		<script src="js/classie.js"></script>
+		<script src="js/stepsForm.js"></script>
+		<script>
+			var theForm = document.getElementById( 'theForm' );
+			new stepsForm( theForm, {
+				onSubmit : function( form ) {
+					// hide form
+					classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+					/*
+					form.submit()
+					or
+					AJAX request (maybe show loading indicator while we don't have an answer..)
+					*/
+					// let's just simulate something...
+					var messageEl = theForm.querySelector( '.final-message' );
+					messageEl.innerHTML = 'Your Balance : '+content+' Satoshi';
+					classie.addClass( messageEl, 'show' );
+				}
+			} );
+		</script>
 	</body>
 </html>
