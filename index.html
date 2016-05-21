@@ -20,10 +20,11 @@ $(document).ready(function(){
    			var price = data.bpi.TND.rate_float;
 			var prix = price.toFixed(3);
 			content +='<span> Bitcoin Price : '+ prix +' TND </span>';
+			$("#bitcoin").empty();
 			$(content).appendTo("#bitcoin");
 		});
 	}
-	var interval = window.setInterval(update, 20000);
+	var interval = window.setInterval(update, 5000);
 	$("#tnd").bind('DOMAttrModified textInput input change keypress paste focus', function () {
 				var tnd = $("#tnd").val();
 				var bitcoin = tnd/ data.bpi.TND.rate_float;
