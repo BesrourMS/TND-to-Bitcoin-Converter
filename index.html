@@ -24,7 +24,8 @@ $(document).ready(function(){
 				var bitcoin = tnd/ data.bpi.TND.rate_float;
 				var bitcoin = bitcoin.toFixed(8);
 				console.log(bitcoin);
-				$("#q1").val(bitcoin+' BTC');
+				//$("#q1").val(bitcoin+' BTC');
+				bitcoin.before($("#q1"));
 		});
 		$(content).appendTo("#bitcoin");
 	});
